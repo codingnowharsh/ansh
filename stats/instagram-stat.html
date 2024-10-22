@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram Account Statistics</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fafafa;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #666;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #3897f0;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .stats {
+        margin-top: 20px;
+    }
+
+    .post {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #ddd;
+        padding-top: 10px;
+    }
+
+    .post img {
+        max-width: 100px;
+        max-height: 100px;
+        margin-right: 10px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Instagram Account Statistics</h1>
+    <label for="username">Enter Instagram Username:</label>
+    <input type="text" id="username" placeholder="Enter username...">
+    <button onclick="fetchData()">Get Statistics</button>
+    <div class="stats" id="stats"></div>
+</div>
+
+<script>
+    // This is just a DUMMY JS FILE created by CHATGPT
+    // The actual data will be fetched from the Instagram API -- TODO
+    function fetchData() {
+        const username = document.getElementById('username').value;
+        const statistics = {
+            username: username,
+            posts: 150,
+            followers: 5000,
+            following: 300,
+            recentPosts: [
+                { image: 'post1.jpg', likes: 200, comments: 10 },
+                { image: 'post2.jpg', likes: 150, comments: 5 },
+                { image: 'post3.jpg', likes: 180, comments: 8 }
+            ]
+        };
+
+        displayStatistics(statistics);
+    }
+
+    function displayStatistics(stats) {
+        const statsDiv = document.getElementById('stats');
+        statsDiv.innerHTML = `
+            <p><strong>Username:</strong> ${stats.username}</p>
+            <p><strong>Number of Posts:</strong> ${stats.posts}</p>
+            <p><strong>Followers:</strong> ${stats.followers}</p>
+            <p><strong>Following:</strong> ${stats.following}</p>
+            <h2>Recent Posts:</h2>
+            ${stats.recentPosts.map(post => `
+                <div class="post">
+                    <img src="${post.image}" alt="Post Image">
+                    <div>
+                        <p><strong>Likes:</strong> ${post.likes}</p>
+                        <p><strong>Comments:</strong> ${post.comments}</p>
+                    </div>
+                </div>
+            `).join('')}
+        `;
+    }
+</script>
+</body>
+</html>
